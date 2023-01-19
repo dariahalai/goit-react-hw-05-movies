@@ -1,0 +1,16 @@
+.moviesList {
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  .moviesListItem{
+    padding: 2px;
+  }
+  .moviesListLink {
+    color: black;
+    display: flex;
+  align-items: center;
+  }
+  .moviesListLink:hover {
+    color: red;
+  }
+  
