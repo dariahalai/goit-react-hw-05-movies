@@ -5,7 +5,7 @@ import css from './MoviesList.module.css';
 const MoviesList = ({ query }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchMovies, setSearchMovies] = useState([]);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   useEffect(() => {
     setSearchQuery(query);
   }, [query]);
@@ -30,7 +30,7 @@ const MoviesList = ({ query }) => {
       })
       .catch(error => {
         console.log(error);
-        setError(true);
+        // setError(true);
       });
   }, [searchQuery]);
   return (

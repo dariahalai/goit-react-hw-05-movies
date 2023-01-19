@@ -4,7 +4,7 @@ import css from './CastPage.module.css';
 
 export const CastPage = () => {
   const [cast, setCast] = useState([]);
-  const [error, setError] = useState(false);
+//   const [error, setError] = useState(false);
   const { movieId } = useParams();
   useEffect(() => {
     fetch(
@@ -17,7 +17,7 @@ export const CastPage = () => {
       })
       .catch(error => {
         console.log(error);
-        setError(true);
+        // setError(true);
       });
   }, [movieId]);
   const baseUrlImg = 'https://image.tmdb.org/t/p/w500/';

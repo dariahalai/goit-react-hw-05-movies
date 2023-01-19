@@ -4,7 +4,7 @@ import css from './ReviewsPage.module.css';
 
 export const ReviewsPage = () =>{
     const [reviews, setReviews] = useState([]);
-    const [error, setError] = useState(false);
+    // const [error, setError] = useState(false);
     const { movieId } = useParams();
     useEffect(() => {
       fetch(
@@ -18,7 +18,7 @@ export const ReviewsPage = () =>{
         })
         .catch(error => {
           console.log(error);
-          setError(true);
+        //   setError(true);
         });
     }, [movieId]);
     return(

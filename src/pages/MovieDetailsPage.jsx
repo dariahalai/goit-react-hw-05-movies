@@ -3,7 +3,7 @@ import { Link, useParams,Outlet } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
 export const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   const { movieId } = useParams();
   useEffect(() => {
     fetch(
@@ -15,7 +15,7 @@ export const MovieDetailsPage = () => {
       })
       .catch(error => {
         console.log(error);
-        setError(true);
+        // setError(true);
       });
   }, [movieId]);
   const { original_title, overview, vote_average, genres, backdrop_path } =
