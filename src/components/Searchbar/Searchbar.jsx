@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import css from './Searchbar.module.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -9,7 +11,7 @@ const Searchbar = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (query.trim() === '') {
-      console.log('Please, enter correct search word!');
+      toast.warn('Please, enter correct search word!');
       return;
     }
     onSubmit(query);

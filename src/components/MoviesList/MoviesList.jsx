@@ -1,14 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { RiMovie2Line } from 'react-icons/ri';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import css from './MoviesList.module.css';
+import Loader from 'components/Loader/Loader';
+
 const MoviesList = ({ query }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [searchMovies, setSearchMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const location = useLocation();
-  // const [error, setError] = useState(false);
+
   useEffect(() => {
     setSearchQuery(query);
   }, [query]);
@@ -16,6 +23,7 @@ const MoviesList = ({ query }) => {
     if (!searchQuery) {
       return;
     }
+    setLoading(true);
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=9068359f92c010fa6a3cf763f10a0606&language=en-US&query=${searchQuery}&page=${page}&include_adult=false`
     )
@@ -23,7 +31,7 @@ const MoviesList = ({ query }) => {
       .then(data => {
         const { results,total_pages } = data;
         if (!results.length) {
-          console.log('oops,nothing in search');
+          toast.error('Try again with another search word');
         }
         const movies = results.map(({ id, original_title }) => ({
           id,
@@ -32,10 +40,10 @@ const MoviesList = ({ query }) => {
         setSearchMovies(movies);
         setTotalPages(total_pages);
       })
-      .catch(error => {
-        console.log(error);
-        // setError(true);
-      });
+      .catch(() => {
+        toast.error('Something went wrong');
+      })
+      .finally(() => setLoading(false));
   }, [searchQuery, page]);
   const nexPage = () => {
     if(page === totalPages){
@@ -43,15 +51,19 @@ const MoviesList = ({ query }) => {
     }
     setPage(prev => prev + 1);
   }
-    const previousPage = () => {
+    const prevPage = () => {
       if(page === 1){
         return
       }
       setPage(prev => prev - 1);
   };
 
+  if (loading) {
+    return <Loader/>;
+  }
   return (
-    <>
+    searchMovies.length > 0 && 
+    <div className={css.moviesContainer}>
       <ul className={css.moviesList}>
         {searchMovies.map(({ id, original_title }) => (
           <li key={id} className={css.moviesListItem}>
@@ -66,9 +78,11 @@ const MoviesList = ({ query }) => {
           </li>
         ))}
       </ul>
-      <button type="button" onClick={nexPage}>Next page</button>
-      <button type="button" onClick={previousPage}>Prev page</button>
-    </>
+      <ul>
+        <li className={css.btnItem}><button className={css.btn} type="button" onClick={nexPage}>Next page</button></li>
+        <li className={css.btnItem}><button className={css.btn} type="button" onClick={prevPage}>Prev page</button></li>
+      </ul>
+    </div>
   );
 };
 

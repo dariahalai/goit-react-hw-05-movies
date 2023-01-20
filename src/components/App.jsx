@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import { useState, lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import Layout from './Layout';
 import HomePage  from 'pages/HomePage';
@@ -12,6 +13,7 @@ const ReviewsPage = lazy(() => import('../pages/ReviewsPage'));
 
 export const App = () => {
   const [query, setQuery] = useState('');
+
   const handleFormSubmit = query => {
     setQuery(query);
   };
@@ -30,7 +32,9 @@ export const App = () => {
           </Route>
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} theme="colored"/>
     </BrowserRouter>
+    
   );
 };
 // api_key=9068359f92c010fa6a3cf763f10a0606

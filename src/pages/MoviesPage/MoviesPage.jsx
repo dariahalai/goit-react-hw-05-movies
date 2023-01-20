@@ -1,5 +1,6 @@
 import MoviesList from "components/MoviesList";
 import Searchbar from "components/Searchbar";
+import PropTypes from 'prop-types';
 // import { useState,useEffect } from "react";
 
  const MoviesPage = ({onSubmit,query}) =>{
@@ -10,5 +11,8 @@ import Searchbar from "components/Searchbar";
     </>
    )
 }
-
+MoviesPage.propTypes = {
+  query: PropTypes.string.isRequired,
+  onSubmit:PropTypes.func.isRequired
+};
 export default MoviesPage;
