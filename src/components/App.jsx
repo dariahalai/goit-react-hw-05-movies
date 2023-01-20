@@ -1,10 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
-import { HomePage } from 'pages/HomePage';
 import { Routes, Route } from 'react-router-dom';
 import { useState, lazy } from 'react';
 
-
-import Layout from './Layout/Layout';
+import Layout from './Layout';
+import HomePage  from 'pages/HomePage';
 
 const MoviesPage = lazy(() => import('../pages/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('../pages/MovieDetailsPage'));
@@ -17,7 +16,7 @@ export const App = () => {
     setQuery(query);
   };
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='goit-react-hw-05-movies'>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>

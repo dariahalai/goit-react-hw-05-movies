@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link,useLocation } from 'react-router-dom';
 import css from './HomePage.module.css';
 import { RiMovie2Line } from 'react-icons/ri';
-export const HomePage = () => {
+
+const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const location = useLocation();
   useEffect(() => {
@@ -28,3 +29,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;
