@@ -1,7 +1,6 @@
 import MoviesList from "components/MoviesList";
 import Searchbar from "components/Searchbar";
 import PropTypes from 'prop-types';
-// import { useState,useEffect } from "react";
 
  const MoviesPage = ({onSubmit,query}) =>{
    return(

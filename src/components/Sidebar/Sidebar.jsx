@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
-import css from './Sidebar.module.css';
 import { RiHomeHeartLine } from "react-icons/ri";
 import { TbMovie } from "react-icons/tb";
+
+import {Section,NavList,NavItem} from './Sidebar.styled';
 
 const navItems = [
   { href: '', text: 'Home', icon: RiHomeHeartLine },
@@ -10,15 +10,15 @@ const navItems = [
 
 const Sidebar = () => {
   return (
-    <header className={css.headerNav}>
-    <ul className={css.navList}>
+    <Section>
+    <NavList>
       {navItems.map(({ href, text, icon:Icon }) => (
-        <li className={css.navItem} key={href}><NavLink className={css.navLink} to={href} >
+        <li key={href}><NavItem to={href} >
         <Icon size='20' style={{paddingRight:'2px'}}/> {text}
-      </NavLink></li>
+      </NavItem></li>
       ))}
-      </ul>
-    </header>
+      </NavList>
+    </Section>
   );
 };
 

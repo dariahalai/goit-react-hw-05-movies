@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import css from './ReviewsPage.module.css';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from 'components/Loader/Loader';
+
+import { Section, ReviewsList } from './ReviewsPage.styled';
 
 const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -26,18 +28,24 @@ const ReviewsPage = () => {
       .finally(() => setLoading(false));
   }, [movieId]);
   if (loading) {
-    return <Loader/>;
+    return <Loader />;
   }
 
-  return (
-   reviews.length ? (<ul className={css.reviewsList}>
-      {reviews.map(({ author, content }) => (
-        <li className={css.reviewsListItem} key={author}>
-          <h4>{author}</h4>
-          <p>{content}</p>
-        </li>
-      ))}
-    </ul>) : (<p>Reviews  list is empty</p>)
+  return reviews.length ? (
+    <Section>
+      <ReviewsList>
+        {reviews.map(({ author, content }) => (
+          <li key={author}>
+            <h4>{author}</h4>
+            <p>{content}</p>
+          </li>
+        ))}
+      </ReviewsList>
+    </Section>
+  ) : (
+    <Section>
+      <p>Reviews list is empty</p>
+    </Section>
   );
 };
 

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { RiMovie2Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AiOutlineArrowLeft,AiOutlineArrowRight } from "react-icons/ai";
 
-import css from './MoviesList.module.css';
 import Loader from 'components/Loader/Loader';
+
+import { Section, MoviesListItem, BtnList, Btn } from './MoviesList.styled';
 
 const MoviesList = ({ query }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,7 +31,7 @@ const MoviesList = ({ query }) => {
     )
       .then(res => res.json())
       .then(data => {
-        const { results,total_pages } = data;
+        const { results, total_pages } = data;
         if (!results.length) {
           toast.error('Try again with another search word');
         }
@@ -46,43 +48,40 @@ const MoviesList = ({ query }) => {
       .finally(() => setLoading(false));
   }, [searchQuery, page]);
   const nexPage = () => {
-    if(page === totalPages){
-      return
+    if (page === totalPages) {
+      return;
     }
     setPage(prev => prev + 1);
-  }
-    const prevPage = () => {
-      if(page === 1){
-        return
-      }
-      setPage(prev => prev - 1);
+  };
+  const prevPage = () => {
+    if (page === 1) {
+      return;
+    }
+    setPage(prev => prev - 1);
   };
 
   if (loading) {
-    return <Loader/>;
+    return <Loader />;
   }
   return (
-    searchMovies.length > 0 && 
-    <div className={css.moviesContainer}>
-      <ul className={css.moviesList}>
-        {searchMovies.map(({ id, original_title }) => (
-          <li key={id} className={css.moviesListItem}>
-            <Link
-              className={css.moviesListLink}
-              state={{ from: location }}
-              to={`/movies/${id}`}
-            >
-              <RiMovie2Line style={{ paddingRight: '2px' }} />
-              {original_title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <ul>
-        <li className={css.btnItem}><button className={css.btn} type="button" onClick={nexPage}>Next page</button></li>
-        <li className={css.btnItem}><button className={css.btn} type="button" onClick={prevPage}>Prev page</button></li>
-      </ul>
-    </div>
+    searchMovies.length > 0 && (
+      <Section>
+        <ul>
+          {searchMovies.map(({ id, original_title }) => (
+            <li key={id}>
+              <MoviesListItem state={{ from: location }} to={`/movies/${id}`}>
+                <RiMovie2Line style={{ paddingRight: '2px' }} />
+                {original_title}
+              </MoviesListItem>
+            </li>
+          ))}
+        </ul>
+        <BtnList>
+          <Btn onClick={prevPage}><AiOutlineArrowLeft size='20'/></Btn>
+          <Btn onClick={nexPage}><AiOutlineArrowRight size='20'/></Btn>
+        </BtnList>
+      </Section>
+    )
   );
 };
 

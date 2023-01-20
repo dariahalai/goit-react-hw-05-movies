@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import css from './HomePage.module.css';
+import {useLocation } from 'react-router-dom';
 import { RiMovie2Line } from 'react-icons/ri';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from 'components/Loader/Loader';
 
+import {Section,Title,TrendList,TrendListItem} from './HomePage.styled';
 const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,25 +27,24 @@ const HomePage = () => {
     return <Loader/>;
   }
   return (
-    <div className={css.container}>
-      <h1 className={css.trendMoviesTitle}>Trending today</h1>
+    <Section >
+      <Title >Trending today</Title>
       {trendMovies && (
-        <ul className={css.trendMoviesList}>
+        <TrendList >
           {trendMovies.map(({ original_title, id }) => (
-            <li className={css.trendMoviesListItem} key={id}>
-              <Link
-                className={css.trendMoviesListLink}
+            <li key={id}>
+              <TrendListItem
                 state={{ from: location }}
                 to={`/movies/${id}`}
               >
                 <RiMovie2Line style={{ paddingRight: '2px' }} />
                 {original_title}
-              </Link>
+              </TrendListItem>
             </li>
           ))}
-        </ul>
+        </TrendList>
       )}
-    </div>
+    </Section>
   );
 };
 

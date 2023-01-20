@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import css from './Searchbar.module.css';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AiOutlineSearch } from "react-icons/ai";
+
+import { Section, Input, Btn } from './Searchbar.styled';
 
 const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -18,19 +21,20 @@ const Searchbar = ({ onSubmit }) => {
     setQuery('');
   };
   return (
-    <form   className={css.form} onSubmit={handleSubmit}>
-      <input
-        onChange={handleChange}
-        className={css.formInput}
-        type="text"
-        name="query"
-        value={query}
-        autoComplete="off"
-        autoFocus
-        placeholder="Search movies"
-      />
-      <button   className={css.btn} type="submit">Search</button>
-    </form>
+    <Section>
+      <form onSubmit={handleSubmit}>
+        <Input
+          onChange={handleChange}
+          type="text"
+          name="query"
+          value={query}
+          autoComplete="off"
+          autoFocus
+          placeholder="Search movies"
+        />
+        <Btn type="submit"><AiOutlineSearch size='20'/></Btn>
+      </form>
+    </Section>
   );
 };
 
