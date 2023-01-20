@@ -1,11 +1,14 @@
 import Sidebar from "components/Sidebar";
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 
-
-const Layout =({children})=>{
+const Layout =()=>{
 return(
     <div>
         <Sidebar/>
-        <div>{children}</div>
+        <Suspense fallback={null}>
+        <Outlet/>
+        </Suspense>
     </div>
 )
 }

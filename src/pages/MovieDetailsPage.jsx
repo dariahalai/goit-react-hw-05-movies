@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Link, useParams,Outlet } from 'react-router-dom';
+import { useState, useEffect,Suspense } from 'react';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
-export const MovieDetailsPage = () => {
+
+const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
   // const [error, setError] = useState(false);
   const { movieId } = useParams();
+  // const location = useLocation();
+
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=9068359f92c010fa6a3cf763f10a0606&language=en-US`
@@ -23,7 +26,8 @@ export const MovieDetailsPage = () => {
   const image = 'https://image.tmdb.org/t/p/w500/' + backdrop_path;
   return (
     <>
-      <button className={css.btn} >Go back</button>
+      {/* <Link  to={location.state.from} className={css.btn} >Go back</Link> */}
+      <div>
       <div className={css.movieCard}>
         <img className={css.movieCardImg} src={image} alt={original_title} />
         <div className={css.movieCardInfo}>
@@ -39,18 +43,23 @@ export const MovieDetailsPage = () => {
       </div>
       <h3>Aditional information</h3>
       <ul className={css.movieCardBtnList}>
-        <li className={css.btn} key="1">
+        <li className={css.btn} key="cast">
           <Link className={css.movieCardBtnLink} to="cast">
             Cast
           </Link>
         </li>
-        <li className={css.btn} key="2">
+        <li className={css.btn} key="reviews">
           <Link className={css.movieCardBtnLink} to="reviews">
             Reviews
           </Link>
         </li>
       </ul>
-      <Outlet/>
+      </div>
+      <Suspense fallback={null}>
+        <Outlet/>
+        </Suspense>
     </>
   );
 };
+
+export default MovieDetailsPage;

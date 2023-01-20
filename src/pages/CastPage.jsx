@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import css from './CastPage.module.css';
 
-export const CastPage = () => {
+const CastPage = () => {
   const [cast, setCast] = useState([]);
 //   const [error, setError] = useState(false);
   const { movieId } = useParams();
@@ -37,3 +37,4 @@ export const CastPage = () => {
   );
 };
 
+export default CastPage;
