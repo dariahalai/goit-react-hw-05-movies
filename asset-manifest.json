@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-05-movies/static/css/main.bbd20336.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.d879e569.js",
-    "static/css/112.a0e9759a.chunk.css": "/goit-react-hw-05-movies/static/css/112.a0e9759a.chunk.css",
-    "static/js/112.65affea2.chunk.js": "/goit-react-hw-05-movies/static/js/112.65affea2.chunk.js",
-    "static/css/935.cc4081bd.chunk.css": "/goit-react-hw-05-movies/static/css/935.cc4081bd.chunk.css",
-    "static/js/935.6c0a7544.chunk.js": "/goit-react-hw-05-movies/static/js/935.6c0a7544.chunk.js",
-    "static/css/428.ae1f7a8d.chunk.css": "/goit-react-hw-05-movies/static/css/428.ae1f7a8d.chunk.css",
-    "static/js/428.641d829d.chunk.js": "/goit-react-hw-05-movies/static/js/428.641d829d.chunk.js",
-    "static/css/877.0093f262.chunk.css": "/goit-react-hw-05-movies/static/css/877.0093f262.chunk.css",
-    "static/js/877.22aac8b4.chunk.js": "/goit-react-hw-05-movies/static/js/877.22aac8b4.chunk.js",
+    "main.css": "/goit-react-hw-05-movies/static/css/main.c3f34124.css",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.f6d4fa7e.js",
+    "static/css/364.bd393051.chunk.css": "/goit-react-hw-05-movies/static/css/364.bd393051.chunk.css",
+    "static/js/364.bff20ff2.chunk.js": "/goit-react-hw-05-movies/static/js/364.bff20ff2.chunk.js",
+    "static/css/652.19bf3f89.chunk.css": "/goit-react-hw-05-movies/static/css/652.19bf3f89.chunk.css",
+    "static/js/652.15ca0f59.chunk.js": "/goit-react-hw-05-movies/static/js/652.15ca0f59.chunk.js",
+    "static/css/21.002d8975.chunk.css": "/goit-react-hw-05-movies/static/css/21.002d8975.chunk.css",
+    "static/js/21.d97d4f0c.chunk.js": "/goit-react-hw-05-movies/static/js/21.d97d4f0c.chunk.js",
+    "static/css/673.d0adca71.chunk.css": "/goit-react-hw-05-movies/static/css/673.d0adca71.chunk.css",
+    "static/js/673.ceea5489.chunk.js": "/goit-react-hw-05-movies/static/js/673.ceea5489.chunk.js",
     "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.bbd20336.css.map": "/goit-react-hw-05-movies/static/css/main.bbd20336.css.map",
-    "main.d879e569.js.map": "/goit-react-hw-05-movies/static/js/main.d879e569.js.map",
-    "112.a0e9759a.chunk.css.map": "/goit-react-hw-05-movies/static/css/112.a0e9759a.chunk.css.map",
-    "112.65affea2.chunk.js.map": "/goit-react-hw-05-movies/static/js/112.65affea2.chunk.js.map",
-    "935.cc4081bd.chunk.css.map": "/goit-react-hw-05-movies/static/css/935.cc4081bd.chunk.css.map",
-    "935.6c0a7544.chunk.js.map": "/goit-react-hw-05-movies/static/js/935.6c0a7544.chunk.js.map",
-    "428.ae1f7a8d.chunk.css.map": "/goit-react-hw-05-movies/static/css/428.ae1f7a8d.chunk.css.map",
-    "428.641d829d.chunk.js.map": "/goit-react-hw-05-movies/static/js/428.641d829d.chunk.js.map",
-    "877.0093f262.chunk.css.map": "/goit-react-hw-05-movies/static/css/877.0093f262.chunk.css.map",
-    "877.22aac8b4.chunk.js.map": "/goit-react-hw-05-movies/static/js/877.22aac8b4.chunk.js.map"
+    "main.c3f34124.css.map": "/goit-react-hw-05-movies/static/css/main.c3f34124.css.map",
+    "main.f6d4fa7e.js.map": "/goit-react-hw-05-movies/static/js/main.f6d4fa7e.js.map",
+    "364.bd393051.chunk.css.map": "/goit-react-hw-05-movies/static/css/364.bd393051.chunk.css.map",
+    "364.bff20ff2.chunk.js.map": "/goit-react-hw-05-movies/static/js/364.bff20ff2.chunk.js.map",
+    "652.19bf3f89.chunk.css.map": "/goit-react-hw-05-movies/static/css/652.19bf3f89.chunk.css.map",
+    "652.15ca0f59.chunk.js.map": "/goit-react-hw-05-movies/static/js/652.15ca0f59.chunk.js.map",
+    "21.002d8975.chunk.css.map": "/goit-react-hw-05-movies/static/css/21.002d8975.chunk.css.map",
+    "21.d97d4f0c.chunk.js.map": "/goit-react-hw-05-movies/static/js/21.d97d4f0c.chunk.js.map",
+    "673.d0adca71.chunk.css.map": "/goit-react-hw-05-movies/static/css/673.d0adca71.chunk.css.map",
+    "673.ceea5489.chunk.js.map": "/goit-react-hw-05-movies/static/js/673.ceea5489.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bbd20336.css",
-    "static/js/main.d879e569.js"
+    "static/css/main.c3f34124.css",
+    "static/js/main.f6d4fa7e.js"
   ]
 }
