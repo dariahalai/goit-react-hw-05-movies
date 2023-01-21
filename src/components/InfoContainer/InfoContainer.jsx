@@ -1,10 +1,13 @@
 import { Section, Title, BtnInfoList, BtnLink} from './FilmInfo.styled';
+import { useLocation } from 'react-router-dom';
 
-const InfoContainer = () => {
-  const btnLink = [
+ const btnLink = [
     { href: 'cast', text: 'Cast' },
     { href: 'reviews', text: 'Reviews' },
   ];
+
+const InfoContainer = () => {
+  const location = useLocation(); 
 
   return (
     <Section>
@@ -12,7 +15,7 @@ const InfoContainer = () => {
       <BtnInfoList>
         {btnLink.map(({ href, text }) => (
           <li key={href}>
-            <BtnLink to={href}>{text}</BtnLink>
+            <BtnLink to={href} state={{from : location}}>{text}</BtnLink>
           </li>
         ))}
       </BtnInfoList>

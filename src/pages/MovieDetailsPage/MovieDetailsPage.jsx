@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet,useLocation,useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,8 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(false);
   const { movieId } = useParams();
-  // const location = useLocation();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -39,8 +40,7 @@ const MovieDetailsPage = () => {
   return (
     <>
       <BtnBack 
-      //  to={location.state.from} 
-       ><AiOutlineArrowLeft size='20'/></BtnBack>
+      onClick={()=>navigate(location.state?.from ?? '/')}><AiOutlineArrowLeft size='20'/></BtnBack>
       <FilmCard 
       original_title={original_title} 
       overview={overview} 

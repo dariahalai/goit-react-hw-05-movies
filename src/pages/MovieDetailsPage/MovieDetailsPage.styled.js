@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const BtnBack = styled(Link)`
+
+export const BtnBack = styled.button`
   margin-top: 10px;
   display: flex;
   align-items: center;
