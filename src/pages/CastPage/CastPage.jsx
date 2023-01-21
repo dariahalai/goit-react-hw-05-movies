@@ -34,7 +34,7 @@ const CastPage = () => {
     'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
   const IMG_PATH = 'https://image.tmdb.org/t/p/w500/';
 
-  return (
+  return cast.length ? (
     <Section>
       <CastList>
         {cast.map(({ name, character, profile_path }) => (
@@ -48,6 +48,10 @@ const CastPage = () => {
           </CastItem>
         ))}
       </CastList>
+    </Section>
+  ) : (
+    <Section>
+      <p>Cast list is empty</p>
     </Section>
   );
 };
