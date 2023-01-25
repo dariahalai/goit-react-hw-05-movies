@@ -7,9 +7,13 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import Loader from 'components/Loader/Loader';
 import FilmCard from 'components/FilmCard';
-import InfoContainer from 'components/InfoContainer';
+import {BtnBack,Section, Title, BtnInfoList, BtnLink} from './MovieDetailsPage.styled';
 
-import {BtnBack} from './MovieDetailsPage.styled';
+const btnLink = [
+  { href: 'cast', text: 'Cast' },
+  { href: 'reviews', text: 'Reviews' },
+];
+
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
@@ -47,7 +51,16 @@ const MovieDetailsPage = () => {
       vote_average={vote_average} 
       genres={genres} 
       backdrop_path={backdrop_path} />
-      <InfoContainer />
+      <Section>
+      <Title>Aditional information</Title>
+      <BtnInfoList>
+        {btnLink.map(({ href, text }) => (
+          <li key={href}>
+            <BtnLink to={href} state={location.state}>{text}</BtnLink>
+          </li>
+        ))}
+      </BtnInfoList>
+    </Section>
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

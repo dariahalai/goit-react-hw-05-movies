@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
-import { useState, lazy } from 'react';
+import {  lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import Layout from './Layout';
@@ -12,11 +12,11 @@ const CastPage = lazy(() => import('../pages/CastPage'));
 const ReviewsPage = lazy(() => import('../pages/ReviewsPage'));
 
 export const App = () => {
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
 
-  const handleFormSubmit = query => {
-    setQuery(query);
-  };
+  // const handleFormSubmit = query => {
+  //   setQuery(query);
+  // };
   return (
     <BrowserRouter basename='goit-react-hw-05-movies'>
       <Routes>
@@ -24,7 +24,7 @@ export const App = () => {
           <Route index element={<HomePage />}></Route>
           <Route
             path="/movies"
-            element={<MoviesPage onSubmit={handleFormSubmit} query={query} />}
+            element={<MoviesPage />}
           ></Route>
           <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<CastPage />}></Route>

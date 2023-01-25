@@ -1,14 +1,14 @@
 import { RiHomeHeartLine } from "react-icons/ri";
 import { TbMovie } from "react-icons/tb";
 
-import {Section,NavList,NavItem} from './Sidebar.styled';
+import {Section,NavList,NavItem} from './Navigation.styled';
 
 const navItems = [
   { href: '', text: 'Home', icon: RiHomeHeartLine },
   { href: 'movies', text: 'Movies', icon: TbMovie },
 ];
 
-const Sidebar = () => {
+const Navigation = () => {
   return (
     <Section>
     <NavList>
@@ -22,4 +22,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Navigation;

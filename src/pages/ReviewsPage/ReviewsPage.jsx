@@ -20,7 +20,6 @@ const ReviewsPage = () => {
       .then(data => {
         const { results } = data;
         setReviews(results);
-        console.log(data);
       })
       .catch(() => {
         toast.error('Something went wrong');

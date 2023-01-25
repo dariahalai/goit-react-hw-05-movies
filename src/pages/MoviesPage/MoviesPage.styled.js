@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Section = styled.div`
   padding-top: 25px;
@@ -21,5 +22,17 @@ export const Btn = styled.button`
   &:hover {
     cursor: pointer;
     background-color: green;
+  }
+`;
+export const MoviesList = styled.ul`
+margin-top: 20px;
+`
+export const MoviesListItem = styled(Link)`
+  color: black;
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: green;
+    font-weight: 500;
   }
 `;
